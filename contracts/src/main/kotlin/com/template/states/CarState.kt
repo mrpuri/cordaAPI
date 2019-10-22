@@ -4,6 +4,7 @@ import com.template.contracts.CarContract
 import com.template.contracts.TemplateContract
 import net.corda.core.contracts.BelongsToContract
 import net.corda.core.contracts.ContractState
+import net.corda.core.contracts.LinearState
 import net.corda.core.contracts.UniqueIdentifier
 import net.corda.core.identity.AbstractParty
 import net.corda.core.identity.Party
@@ -22,8 +23,8 @@ data class CarState(
     val make: String,
     val model: String,
     val dealershipLocation: String,
-    val linearId: UniqueIdentifier
-) : ContractState {
+    override val linearId: UniqueIdentifier = UniqueIdentifier()
+) : LinearState {
     override val participants: List<AbstractParty> = listOf(owningBank, holdingDealer, manufacturer)
 
     fun updateTradeStatus(vin: String): String {
