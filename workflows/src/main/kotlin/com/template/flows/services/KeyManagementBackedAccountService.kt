@@ -1,10 +1,8 @@
 package com.template.flows.services
 
 import co.paralleluniverse.fibers.Suspendable
-import com.r3.corda.lib.accounts.workflows.accountBaseCriteria
-import com.r3.corda.lib.accounts.workflows.accountHostCriteria
-import com.r3.corda.lib.accounts.workflows.accountUUIDCriteria
-import com.r3.corda.lib.accounts.workflows.ourIdentity
+import com.r3.corda.lib.accounts.workflows.*
+import com.r3.corda.lib.accounts.workflows.flows.ShareStateAndSyncAccounts
 
 import com.template.flows.Utilities.*
 import com.template.flows.CreateAccount
@@ -26,7 +24,7 @@ import java.security.PublicKey
 import java.util.*
 import java.util.concurrent.CompletableFuture
 
-class KeyManagementBackedAccountService {
+
 
     @CordaService
     class KeyManagementBackedAccountService(val services: AppServiceHub) : AccountService, SingletonSerializeAsToken() {
@@ -141,4 +139,4 @@ class KeyManagementBackedAccountService {
         }
 
     }
-}
+

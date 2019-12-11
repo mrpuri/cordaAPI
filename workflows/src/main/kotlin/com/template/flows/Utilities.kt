@@ -22,7 +22,7 @@ class Utilities {
 
     /** Helper for obtaining a [AccountService]. */
     val FlowLogic<*>.accountService: AccountService
-        get() = serviceHub.cordaService( KeyManagementBackedAccountService::class.java)
+        get() = serviceHub.cordaService( KeyManagementBackedAccountService :: class.java)
 
     // TODO: Remove this and replace with a utility in a commons CorDapp.
     val ServiceHub.ourIdentity get() = myInfo.legalIdentities.first()
